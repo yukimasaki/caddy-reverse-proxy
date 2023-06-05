@@ -1,0 +1,16 @@
+# Vaultwarden
+{$VW_DOMAIN}:443 {
+  log {
+    level INFO
+    output file {$VW_LOG} {
+      roll_size 10MB
+      roll_keep 10
+    }
+  }
+  tls {$VW_EMAIL}
+  encode gzip
+  reverse_proxy /notifications/hub vaultwarden-container:3012
+  reverse_proxy vaultwarden-container:80 {
+    header_up X-Real-IP {remote_host}
+  }
+}

@@ -1,0 +1,22 @@
+services:
+  caddy:
+    container_name: caddy
+    image: caddy:2
+    restart: always
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./caddy-config:/config
+      - ./caddy-data:/data
+    networks:
+      - reverse-proxy-network
+    environment:
+      - VW_DOMAIN=$VW_DOMAIN
+      - VW_EMAIL=$VW_EMAIL
+      - VW_LOG=$VW_LOG
+
+networks:
+  reverse-proxy-network:
+    external: true
