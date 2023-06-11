@@ -14,3 +14,19 @@
     header_up X-Real-IP {remote_host}
   }
 }
+
+# Techblog (WordPress)
+{$WP1_DOMAIN}:443 {
+  log {
+    level INFO
+    output file {$WP1_LOG} {
+      roll_size 10MB
+      roll_keep 10
+    }
+  }
+  tls {$WP1_EMAIL}
+  encode gzip
+  reverse_proxy wp-techmaro-container:80 {
+    header_up X-Real-IP {remote_host}
+  }
+}

@@ -16,6 +16,9 @@ services:
       - VW_DOMAIN=$VW_DOMAIN
       - VW_EMAIL=$VW_EMAIL
       - VW_LOG=$VW_LOG
+      - WP1_DOMAIN=$WP1_DOMAIN
+      - WP1_EMAIL=$WP1_EMAIL
+      - WP1_LOG=$WP1_LOG
 
 networks:
   reverse-proxy-network:
