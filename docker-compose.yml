@@ -19,10 +19,10 @@ services:
       - WP1_DOMAIN=$WP1_DOMAIN
       - WP1_EMAIL=$WP1_EMAIL
       - WP1_LOG=$WP1_LOG
-      - NAS_DOMAIN=$NAS_DOMAIN
-      - NAS_EMAIL=$NAS_EMAIL
-      - NAS_LOG=$NAS_LOG
-
+      - QUMAGIE_DOMAIN=$QUMAGIE_DOMAIN
+      - QUMAGIE_EMAIL=$QUMAGIE_EMAIL
+      - QUMAGIE_LOG=$QUMAGIE_LOG
+      
 networks:
   reverse-proxy-network:
     external: true

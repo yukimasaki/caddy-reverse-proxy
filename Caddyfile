@@ -31,16 +31,16 @@
   }
 }
 
-# QNAP
-{$NAS_DOMAIN}:443 {
+# QNAP: QuMagie, WebGUI
+{$QUMAGIE_DOMAIN}:443 {
   log {
     level INFO
-    output file {$NAS_LOG} {
+    output file {$QUMAGIE_LOG} {
       roll_size 10MB
       roll_keep 10
     }
   }
-  tls {$NAS_EMAIL}
+  tls {$QUMAGIE_EMAIL}
   encode gzip
   reverse_proxy 192.168.93.100:8080 {
     header_up X-Real-IP {remote_host}
