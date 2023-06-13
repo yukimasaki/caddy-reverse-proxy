@@ -30,3 +30,19 @@
     header_up X-Real-IP {remote_host}
   }
 }
+
+# QNAP
+{$NAS_DOMAIN}:443 {
+  log {
+    level INFO
+    output file {$NAS_LOG} {
+      roll_size 10MB
+      roll_keep 10
+    }
+  }
+  tls {$NAS_EMAIL}
+  encode gzip
+  reverse_proxy 192.168.93.100:8080 {
+    header_up X-Real-IP {remote_host}
+  }
+}

@@ -19,6 +19,9 @@ services:
       - WP1_DOMAIN=$WP1_DOMAIN
       - WP1_EMAIL=$WP1_EMAIL
       - WP1_LOG=$WP1_LOG
+      - NAS_DOMAIN=$NAS_DOMAIN
+      - NAS_EMAIL=$NAS_EMAIL
+      - NAS_LOG=$NAS_LOG
 
 networks:
   reverse-proxy-network:
